@@ -1,0 +1,9 @@
+task:
+  name: generation  # 或 classification
+
+model:
+  _target_: generate_model.VAE.VAE  # 若 classification 则换为 ResNet18 等
+  latent_dim: 128
+  image_channels: 3
+  hidden_channel: 64
+

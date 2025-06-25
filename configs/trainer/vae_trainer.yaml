@@ -1,0 +1,9 @@
+optim:
+  lr: 2e-4
+
+trainer:
+  epochs: 150
+  seed: 0
+  batch_size: 32
+  save_interval: 70
+  resume: False

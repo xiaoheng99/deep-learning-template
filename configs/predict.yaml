@@ -1,0 +1,8 @@
+defaults:
+  - model:
+      __target__: simple_model.Resnet.ResNet18
+
+
+checkpoint_path: "../outputs/2025-06-25/14-35-51/checkpoints/best.ckpt"
+image_path: "../data1/test/1.jpg"
+image_size: 32

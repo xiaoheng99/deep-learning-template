@@ -4,7 +4,7 @@ from torchvision import datasets, transforms
 import os
 
 
-def data_loader(root="./data", batch_size=32, split=(0.7, 0.3)):
+def data_loader(root, batch_size, split, pin_memory, num_workers):
     transform = transforms.Compose([
         transforms.ToTensor(),  # 归一化到[0, 1]
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
@@ -16,9 +16,9 @@ def data_loader(root="./data", batch_size=32, split=(0.7, 0.3)):
     datasets_size = len(train_dataset)
     train_size, val_size = int(datasets_size*split[0]), int(datasets_size*split[1])
     train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size])
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=pin_memory)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=pin_memory)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=pin_memory)
     return train_loader, val_loader, test_loader
 
 

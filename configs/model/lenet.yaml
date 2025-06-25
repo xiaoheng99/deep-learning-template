@@ -1,0 +1,9 @@
+# 指定lenet的类的路径
+_target_: simple_model.cnn.LeNet
+
+# LeNet专属参数（根据模型的__init__调整）
+hidden_dim_1: 120
+hidden_dim_2: 84
+conv_hidden_dim_1: 6
+conv_hidden_dim_2: 16
+num_classes: 10

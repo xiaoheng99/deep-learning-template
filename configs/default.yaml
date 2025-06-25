@@ -1,17 +1,5 @@
-data:
-  path: "./data"
+defaults:
+  - model: vae
+  - data: default
+  - trainer: vae_trainer
 
-model:
-  num_classes: 10
-  hidden_dim_1: 120
-  hidden_dim_2: 84
-  conv_hidden_dim_1: 6
-  conv_hidden_dim_2: 16
-
-optim:
-  lr: 0.001
-
-trainer:
-  epochs: 20
-  seed: 0
-  batch_size: 32
